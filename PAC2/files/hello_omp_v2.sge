@@ -1,0 +1,8 @@
+#!/bin/bash
+#$ -cwd
+#$ -S /bin/bash
+#$ -o $JOB_NAME.$JOB_ID.out
+#$ -e $JOB_NAME.$JOB_ID.err 
+#$ -pe openmp 4
+
+./hello_omp

@@ -1,0 +1,29 @@
+#!/bin/bash
+#$ -cwd
+#$ -S /bin/bash
+#$ -o $JOB_NAME.$JOB_ID.out
+#$ -e $JOB_NAME.$JOB_ID.err
+
+for NUM in 10 50 100 500 1000 1500
+do
+    FILE=${name}_${NUM}.csv
+    echo "hostname,timestamp,real" > $FILE
+    for SAMPLE in {1..10}
+    do
+        OUT_FILE=`ls ${name}_${NUM}_${SAMPLE}.*.out`
+        ERR_FILE=`ls ${name}_${NUM}_${SAMPLE}.*.err`
+        HOST=`grep host ${OUT_FILE} | cut -d' ' -f2`
+        TIME=`grep timestamp ${OUT_FILE} | cut -d' ' -f2`
+        REAL=`grep real ${ERR_FILE} | cut -f2`
+        REAL_TMP=(${REAL//m/ })
+        REAL_MIN=${REAL_TMP[0]}
+        REAL_TMP=(${REAL_TMP[1]//./ })
+        REAL_SEC=${REAL_TMP[0]}
+        REAL_TMP=(${REAL_TMP[1]//s/ })
+        REAL_MIL=${REAL_TMP[0]}
+        TOTAL=`echo "(${REAL_MIN} * 60) * 1000" | bc`
+        TOTAL=`echo "${TOTAL} + (${REAL_SEC} * 1000)" | bc`
+        TOTAL=`echo "${TOTAL} + ${REAL_MIL}" | bc`
+        echo $HOST,$TIME,`echo "scale=3; ${TOTAL} / 1000" | bc` >> $FILE
+    done
+done

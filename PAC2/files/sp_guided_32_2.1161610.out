@@ -1,0 +1,85 @@
+compute-0-4.local says
+  _          _ _       
+ | |        | | |      
+ | |__   ___| | | ___  
+ | '_ \ / _ \ | |/ _ \ 
+ | | | |  __/ | | (_) |
+ |_| |_|\___|_|_|\___/ 
+                       
+
+
+ NAS Parallel Benchmarks (NPB3.2-OMP) - SP Benchmark
+
+ No input file inputsp.data. Using compiled defaults
+ Size:  36x 36x 36
+ Iterations: 400    dt:    0.001500
+ Number of available threads:     4
+
+ Time step    1
+ Time step   20
+ Time step   40
+ Time step   60
+ Time step   80
+ Time step  100
+ Time step  120
+ Time step  140
+ Time step  160
+ Time step  180
+ Time step  200
+ Time step  220
+ Time step  240
+ Time step  260
+ Time step  280
+ Time step  300
+ Time step  320
+ Time step  340
+ Time step  360
+ Time step  380
+ Time step  400
+ Verification being performed for class W
+ accuracy setting for epsilon =  0.1000000000000E-07
+ Comparison of RMS-norms of residual
+ FAILURE:  1 0.1316330384730E+03 0.1893253733584E-02 0.6952641523124E+05
+ FAILURE:  2 0.2819390018626E+02 0.1717075447775E-03 0.1641962123170E+06
+ FAILURE:  3 0.2376506235295E+01 0.2778153350936E-03 0.8553265856111E+04
+ FAILURE:  4 0.1673715797575E+01 0.2887475409984E-03 0.5795467709430E+04
+ FAILURE:  5 0.1423140728505E+04 0.3143611161242E-02 0.4527078928973E+06
+ Comparison of RMS-norms of solution error
+ FAILURE:  1 0.5243206889510E+03 0.7542088599534E-04 0.6951928588620E+07
+ FAILURE:  2 0.3626534876492E+02 0.6512852253086E-05 0.5568273445000E+07
+ FAILURE:  3 0.1093457549168E+03 0.1049092285688E-04 0.1042289090460E+08
+ FAILURE:  4 0.9666842576482E+02 0.1128838671535E-04 0.8563527890570E+07
+ FAILURE:  5 0.7734105552590E+03 0.1212845639773E-03 0.6376824952920E+07
+ Verification failed
+
+
+ SP Benchmark Completed.
+ Class           =                        W
+ Size            =             36x  36x  36
+ Iterations      =                      400
+ Time in seconds =                     6.84
+ Total threads   =                        4
+ Avail threads   =                        4
+ Mop/s total     =                  2073.67
+ Mop/s/thread    =                   518.42
+ Operation type  =           floating point
+ Verification    =             UNSUCCESSFUL
+ Version         =                      3.2
+ Compile date    =              02 Nov 2024
+
+ Compile options:
+    F77          = gfortran
+    FLINK        = $(F77)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O  -fopenmp -mcmodel=medium
+    FLINKFLAGS   = -O  -fopenmp -mcmodel=medium
+    RAND         = (none)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+

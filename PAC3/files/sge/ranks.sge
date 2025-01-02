@@ -1,0 +1,10 @@
+#!/bin/bash
+#$ -cwd
+#$ -S /bin/bash
+#$ -N ranks_run
+#$ -o $JOB_NAME.out.$JOB_ID
+#$ -e $JOB_NAME.err.$JOB_ID
+#$ -pe orte 32
+
+mpirun -np 32 pac3_ranks
+

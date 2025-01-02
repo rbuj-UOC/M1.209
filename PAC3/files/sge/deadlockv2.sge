@@ -1,0 +1,9 @@
+#!/bin/bash
+#$ -cwd
+#$ -S /bin/bash
+#$ -N deadlockv2_run
+#$ -o $JOB_NAME.out.$JOB_ID
+#$ -e $JOB_NAME.err.$JOB_ID
+#$ -pe orte 2
+
+mpirun -np 2 pac3_deadlockv2

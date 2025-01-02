@@ -1,0 +1,27 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Import Pandas library}
+\PYG{k+kn}{import} \PYG{n+nn}{pandas} \PYG{k}{as} \PYG{n+nn}{pd}
+\PYG{k+kn}{import} \PYG{n+nn}{getopt}\PYG{o}{,} \PYG{n+nn}{sys}
+
+\PYG{n}{argumentList} \PYG{o}{=} \PYG{n}{sys}\PYG{o}{.}\PYG{n}{argv}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{p}{]}
+
+\PYG{n}{options} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{n:}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{n}{long\PYGZus{}options} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Name}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}
+
+\PYG{k}{try}\PYG{p}{:}
+    \PYG{n}{arguments}\PYG{p}{,} \PYG{n}{values} \PYG{o}{=} \PYG{n}{getopt}\PYG{o}{.}\PYG{n}{getopt}\PYG{p}{(}\PYG{n}{argumentList}\PYG{p}{,} \PYG{n}{options}\PYG{p}{,} \PYG{n}{long\PYGZus{}options}\PYG{p}{)}
+    \PYG{k}{for} \PYG{n}{currentArgument}\PYG{p}{,} \PYG{n}{currentValue} \PYG{o+ow}{in} \PYG{n}{arguments}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n}{currentArgument} \PYG{o+ow}{in} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{\PYGZhy{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{\PYGZhy{}\PYGZhy{}Name}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{:}
+            \PYG{n}{name} \PYG{o}{=} \PYG{n}{currentValue}
+
+\PYG{k}{except} \PYG{n}{getopt}\PYG{o}{.}\PYG{n}{error} \PYG{k}{as} \PYG{n}{err}\PYG{p}{:}
+    \PYG{n+nb}{print} \PYG{p}{(}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{err}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{n}{dim\PYGZus{}list}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+m+mi}{50}\PYG{p}{,} \PYG{l+m+mi}{100}\PYG{p}{,} \PYG{l+m+mi}{500}\PYG{p}{,} \PYG{l+m+mi}{1000}\PYG{p}{,} \PYG{l+m+mi}{1500}\PYG{p}{]}
+\PYG{k}{for} \PYG{n}{dim} \PYG{o+ow}{in} \PYG{n}{dim\PYGZus{}list}\PYG{p}{:}
+    \PYG{n}{url}\PYG{o}{=}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{name}\PYG{p}{)}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZus{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{dim}\PYG{p}{)}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{.csv}\PYG{l+s+s1}{\PYGZsq{}}
+    \PYG{n}{df}\PYG{o}{=}\PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{n}{url}\PYG{p}{)}
+    \PYG{n}{mean\PYGZus{}value}\PYG{o}{=}\PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{real}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{std\PYGZus{}value}\PYG{o}{=}\PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{real}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{std}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{dim}\PYG{p}{)}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{ }\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{+}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{mean\PYGZus{}value}\PYG{l+s+si}{:}\PYG{l+s+s2}{.3f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{ }\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{+}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{std\PYGZus{}value}\PYG{l+s+si}{:}\PYG{l+s+s2}{.3f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{MintedVerbatim}

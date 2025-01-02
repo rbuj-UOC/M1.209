@@ -1,0 +1,3 @@
+l2_data_cache_misses = 239264925
+flops = 2005906660
+instructions = 33073989771

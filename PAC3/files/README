@@ -1,0 +1,52 @@
+cd source
+./autogen.sh 
+./configure --prefix=$HOME
+make
+make install
+
+Q0
+  cd sge
+  qsub hello.sge
+Q1
+  cd sge
+  qsub ranks.sge
+  grep "Hello world" ranks_run.out.1172865 | sort -n -k 7
+  qsub ranks.sge
+  grep "Hello world" ranks_run.out.1172870 | sort -n -k 7
+Q2
+  cd sge
+  BASEDIR=$PWD
+
+  qsub mpi_send_recv.sge
+
+  cd trace/mpi_send_recv
+  cp /share/apps/extrae/share/example/MPI/extrae.xml ./
+  cp ~/bin/pac3_mpi_send_recv ./
+  qsub mpi_send_recv.extrae.sge
+
+  cd $BASEDIR
+  qsub deadlock.sge
+  qsub qsub deadlockv0.sge
+  qsub qsub deadlockv1.sge
+  qsub qsub deadlockv2.sge
+
+  cd $BASEDIR
+  cd trace/deadlockv0
+  cp /share/apps/extrae/share/example/MPI/extrae.xml ./
+  qsub deadlockv0.extrae.sge
+
+  cd $BASEDIR
+  cd trace/deadlockv1
+  cp /share/apps/extrae/share/example/MPI/extrae.xml ./
+  qsub deadlockv1.extrae.sge
+
+  cd $BASEDIR
+  cd trace/deadlockv2
+  cp /share/apps/extrae/share/example/MPI/extrae.xml ./
+  qsub deadlockv2.extrae.sge
+Q3
+  cd sge
+  qsub stencil.sge
+Q4
+  cd sge
+  qsub rma.sge

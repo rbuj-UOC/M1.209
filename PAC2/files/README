@@ -1,0 +1,95 @@
+bash chmod.sh
+
+##################################
+# Warm-up Activity
+##################################
+
+# queue jobs
+qsub -N hello_omp_v1_3 hello_omp_v1.sge
+qsub -N hello_omp_v2_3 -v OMP_NUM_THREADS='3' hello_omp_v2.sge
+qsub -N hello_omp_v2_2 -v OMP_NUM_THREADS='2' hello_omp_v2.sge
+qsub -N hello_omp_v2_1 -v OMP_NUM_THREADS='1' hello_omp_v2.sge
+
+##################################
+# Q1
+##################################
+
+# queue jobs
+./queue.sh -s sv -p sv_omp -n 1000000000 | sh
+
+# get dat and png files from csv files
+./sumarize_sv.sh
+
+or:
+
+docker compose run -it --rm rockylinux ./sumarize_sv.sh
+
+##################################
+# Q2
+##################################
+
+# queue jobs
+./queue_mm.sh | sh
+
+# get dat and png files from csv files
+./sumarize_mm.sh
+
+or:
+
+docker compose run -it --rm rockylinux ./sumarize_mm.sh
+
+##################################
+# Q3
+##################################
+
+# queue jobs
+./queue_flops.sh -n flops | sh
+./queue_flops.sh -n flops2 | sh
+
+##################################
+# Q4
+##################################
+
+# get counter list
+qsub papi_avail.sge
+
+# queue jobs
+./queue_all_counters.sh | sh
+
+# get csv files
+./sumarize_counters.sh
+
+or:
+
+docker compose run -it --rm rockylinux ./sumarize_counters.sh
+
+##################################
+# Q6
+##################################
+
+# queue jobs
+./queue_npb.sh | sh
+
+# get csv, dat and png files
+./sumarize_npb.sh
+
+or:
+
+docker compose run -it --rm rockylinux ./sumarize_npb.sh
+
+##################################
+# Q7
+##################################
+
+# get binaries
+./build_scheduling.sh
+
+# queue jobs
+./queue_scheduling.sh | sh
+
+# csv files
+./sumarize_scheduling.sh
+
+or:
+
+docker compose run -it --rm rockylinux ./sumarize_scheduling.sh

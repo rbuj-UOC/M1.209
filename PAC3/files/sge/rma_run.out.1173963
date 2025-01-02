@@ -1,0 +1,28 @@
+compute-0-2.local says
+  _          _ _       
+ | |        | | |      
+ | |__   ___| | | ___  
+ | '_ \ / _ \ | |/ _ \ 
+ | | | |  __/ | | (_) |
+ |_| |_|\___|_|_|\___/ 
+                       
+[0/2] index 0 value 8
+[1/2] index 0 value -8
+[0/2] index 1 value 9
+[1/2] index 1 value -7
+[0/2] index 2 value 10
+[1/2] index 2 value -6
+[0/2] index 3 value 11
+[1/2] index 3 value -5
+[0/2] index 4 value 12
+[1/2] index 4 value -4
+[0/2] index 5 value 13
+[1/2] index 5 value -3
+[0/2] index 6 value 14
+[1/2] index 6 value -2
+[0/2] index 7 value 15
+[1/2] index 7 value -1
+[0/2] index 8 value 16
+[1/2] index 8 value 0
+[0/2] index 9 value 17
+[1/2] index 9 value 1

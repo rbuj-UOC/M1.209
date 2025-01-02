@@ -1,0 +1,13 @@
+#!/bin/bash
+#$ -cwd
+#$ -S /bin/bash
+#$ -N deadlock_run.extrae
+#$ -o $JOB_NAME.out.$JOB_ID
+#$ -e $JOB_NAME.err.$JOB_ID
+#$ -pe orte 2
+
+export EXTRAE_HOME=/share/apps/extrae
+source /share/apps/extrae/etc/extrae.sh
+export EXTRAE_CONFIG_FILE=extrae.xml
+export LD_PRELOAD=/share/apps/extrae/lib/libmpitrace.so
+mpirun -np 2 pac3_deadlockv2

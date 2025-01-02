@@ -1,0 +1,9 @@
+#!/bin/bash
+#$ -cwd
+#$ -S /bin/bash
+#$ -o $JOB_NAME.$JOB_ID.out
+#$ -e $JOB_NAME.$JOB_ID.err 
+#$ -pe openmp 3
+
+export OMP_NUM_THREADS=$NSLOTS
+./hello_omp

@@ -1,0 +1,5 @@
+services:
+  rockylinux:
+    build: ./docker/rockylinux
+    volumes:
+      - ./:/home/hpc

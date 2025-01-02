@@ -1,0 +1,4 @@
+./autogen.sh 
+./configure --prefix=$HOME
+make
+make install

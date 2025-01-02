@@ -1,0 +1,12 @@
+#!/bin/bash
+#$ -cwd
+#$ -S /bin/bash
+#$ -o $JOB_NAME.$JOB_ID.out
+#$ -e $JOB_NAME.$JOB_ID.err
+
+FILE=${name}.csv
+echo "size,sum_time,global_time,sum_result" > $FILE
+for SAMPLE in {1..10}
+do
+    tail -n 1 -q ${name}_${SAMPLE}.*.out >> $FILE
+done

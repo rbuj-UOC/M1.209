@@ -1,0 +1,9 @@
+#!/bin/bash
+#$ -cwd
+#$ -S /bin/bash
+#$ -o $JOB_NAME.$JOB_ID.out
+#$ -e $JOB_NAME.$JOB_ID.err
+
+echo host `hostname`
+echo timestamp `date +%s`
+time ./${name} ${size}

@@ -1,0 +1,3 @@
+l3_cache_misses = 19490481
+flops = 2006550682
+instructions = 33073990385

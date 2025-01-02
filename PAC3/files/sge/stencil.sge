@@ -1,0 +1,9 @@
+#!/bin/bash
+#$ -cwd
+#$ -S /bin/bash
+#$ -N stencil_run
+#$ -o $JOB_NAME.out.$JOB_ID
+#$ -e $JOB_NAME.err.$JOB_ID
+#$ -pe orte 4
+
+mpirun -np 4 pac3_stencil

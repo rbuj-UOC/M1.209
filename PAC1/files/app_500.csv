@@ -1,0 +1,11 @@
+hostname,timestamp,real
+compute-0-4.local,1728690339,4.195
+compute-0-2.local,1728690339,4.195
+compute-0-8.local,1728690354,4.748
+compute-0-1.local,1728690354,4.745
+compute-0-9.local,1728690369,3.265
+compute-0-7.local,1728690369,3.267
+compute-0-5.local,1728690384,1.445
+compute-0-3.local,1728690384,1.444
+compute-0-0.local,1728690399,4.805
+compute-0-6.local,1728690399,4.808

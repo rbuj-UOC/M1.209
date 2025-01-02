@@ -1,0 +1,10 @@
+#!/bin/bash
+#$ -cwd
+#$ -S /bin/bash
+#$ -N mpi_send_recv_run
+#$ -o $JOB_NAME.out.$JOB_ID
+#$ -e $JOB_NAME.err.$JOB_ID
+#$ -pe orte 2
+
+mpirun -np 2 pac3_mpi_send_recv
+

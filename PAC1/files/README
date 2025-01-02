@@ -1,0 +1,47 @@
+STEEP 1: compile the source file
+    make
+
+STEEP 2: queue jobs using the bash script submit.sh
+    ./s2.sh -n app | sh
+    ./s2.sh -n app2 | sh
+    ./s2.sh -n func | sh
+    ./s2.sh -n loop | sh
+    ./s2.sh -n loppO3 | sh
+      briefly:
+	for p in app app2 func loop loppO3; do ./s2.sh -n $p; done | sh
+
+STEEP 3: get gnuplot data
+    python3 s4.py -n app > app.dat
+    python3 s4.py -n app2 > app2.dat
+    python3 s4.py -n func > func.dat
+    python3 s4.py -n loop > loop.dat
+    python3 s4.py -n loppO3 > loppO3.dat
+      briefly:
+	for p in app app2 func loop loppO3; do bash -c "python3 s4.py -n ${p} > ${p}.dat"; done | sh
+
+    or:
+
+    docker compose build pandas
+    docker compose run -it --rm pandas python3 s4.py -n app    > app.dat
+    docker compose run -it --rm pandas python3 s4.py -n app2   > app2.dat
+    docker compose run -it --rm pandas python3 s4.py -n func   > func.dat
+    docker compose run -it --rm pandas python3 s4.py -n loop   > loop.dat
+    docker compose run -it --rm pandas python3 s4.py -n loppO3 > loppO3.dat
+      briefly:
+        docker compose run -it --rm pandas sh -c "for p in app app2 func loop loppO3; do python3 s4.py -n \${p} &> \${p}.dat; done"
+
+STEEP 4: get gnuplot figure
+    gnuplot executiontime.gnu
+    gnuplot executiontime2.gnu
+    gnuplot executiontime3.gnu
+    for p in app app2 func loop loppO3; do gnuplot -e "datafile='${p}.dat'; outputname='${p}.png'" et.gnu; done
+
+    or:
+
+    docker compose build rockylinux
+    docker compose run -it --rm rockylinux gnuplot executiontime.gnu
+    docker compose run -it --rm rockylinux gnuplot executiontime2.gnu
+    docker compose run -it --rm rockylinux gnuplot executiontime3.gnu
+
+Detect memory leaks:
+    valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose ./mm 100

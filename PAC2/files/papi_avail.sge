@@ -1,0 +1,8 @@
+#!/bin/bash
+#$ -cwd
+#$ -S /bin/bash
+#$ -N papi_avail
+#$ -o papi_avail.$JOB_ID.out
+#$ -e papi_avail.$JOB_ID.err
+
+/share/apps/papi/bin/papi_avail
