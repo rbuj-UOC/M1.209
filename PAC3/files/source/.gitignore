@@ -1,0 +1,5 @@
+Makefile.in
+compile
+configure
+configure~
+src/Makefile.in

@@ -18,6 +18,7 @@
 AC_INIT([M1.209-pac3],[0.1],[rbuj@uoc.edu])
 AC_COPYRIGHT([Copyright (C) 2024 Robert Buj])
 AM_INIT_AUTOMAKE([foreign])
+AM_MAINTAINER_MODE([enable])
 AM_SILENT_RULES([yes])
 AC_PROG_CC([mpicc])
 AC_PROG_CC_STDC

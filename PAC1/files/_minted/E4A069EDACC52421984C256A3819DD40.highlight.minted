@@ -1,6 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-gcc\PYG{+w}{ }func.c\PYG{+w}{ }lib.o\PYG{+w}{ }\PYGZhy{}o\PYG{+w}{ }func
-./s2.sh\PYG{+w}{ }\PYGZhy{}n\PYG{+w}{ }func\PYG{+w}{ }\PYG{p}{|}\PYG{+w}{ }sh
-python3\PYG{+w}{ }s4.py\PYG{+w}{ }\PYGZhy{}n\PYG{+w}{ }func\PYG{+w}{ }\PYGZgt{}\PYG{+w}{ }func.dat
-gnuplot\PYG{+w}{ }\PYGZhy{}e\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}datafile=\PYGZsq{}func.dat\PYGZsq{}; outputname=\PYGZsq{}func.png\PYGZsq{}\PYGZdq{}}\PYG{+w}{ }et.gnu
-\end{MintedVerbatim}

@@ -1,7 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-qsub\PYG{+w}{ }\PYGZhy{}N\PYG{+w}{ }app\PYGZus{}10\PYGZus{}1\PYG{+w}{ }\PYGZhy{}v\PYG{+w}{ }\PYG{n+nv}{name}\PYG{o}{=}app\PYG{+w}{ }\PYGZhy{}v\PYG{+w}{ }\PYG{n+nv}{size}\PYG{o}{=}\PYG{l+m}{10}\PYG{+w}{ }template.sge
-qsub\PYG{+w}{ }\PYGZhy{}N\PYG{+w}{ }app\PYGZus{}10\PYGZus{}2\PYG{+w}{ }\PYGZhy{}v\PYG{+w}{ }\PYG{n+nv}{name}\PYG{o}{=}app\PYG{+w}{ }\PYGZhy{}v\PYG{+w}{ }\PYG{n+nv}{size}\PYG{o}{=}\PYG{l+m}{10}\PYG{+w}{ }template.sge
-...
-qsub\PYG{+w}{ }\PYGZhy{}N\PYG{+w}{ }app\PYGZus{}1500\PYGZus{}10\PYG{+w}{ }\PYGZhy{}v\PYG{+w}{ }\PYG{n+nv}{name}\PYG{o}{=}app\PYG{+w}{ }\PYGZhy{}v\PYG{+w}{ }\PYG{n+nv}{size}\PYG{o}{=}\PYG{l+m}{1500}\PYG{+w}{ }template.sge
-qsub\PYG{+w}{ }\PYGZhy{}hold\PYGZus{}jid\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}app\PYGZus{}*\PYGZdq{}}\PYG{+w}{ }\PYGZhy{}N\PYG{+w}{ }app\PYGZus{}end\PYG{+w}{ }\PYGZhy{}v\PYG{+w}{ }\PYG{n+nv}{name}\PYG{o}{=}app\PYG{+w}{ }\PYGZhy{}cwd\PYG{+w}{ }./s3.sge
-\end{MintedVerbatim}

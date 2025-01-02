@@ -1,3 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{k}{for}\PYG{+w}{ }p\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }app\PYG{+w}{ }app2\PYG{p}{;}\PYG{+w}{ }\PYG{k}{do}\PYG{+w}{ }./s2.sh\PYG{+w}{ }\PYGZhy{}n\PYG{+w}{ }\PYG{n+nv}{\PYGZdl{}p}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{done}\PYG{+w}{ }\PYG{p}{|}\PYG{+w}{ }sh
-\end{MintedVerbatim}
